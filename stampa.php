@@ -1,7 +1,9 @@
 <?php
 $password = $_GET["password"] ?? "NotFound";
+$caratteriConsentiti = "ABCDEFGHILMNOPQRSTUVZWJqwertyuioplkjhgfdsazxcvbnm1234567890?._,!";
 
 
+$lunghezza = strlen($caratteriConsentiti);
 
 ?>
 
@@ -20,10 +22,11 @@ $password = $_GET["password"] ?? "NotFound";
 <body>
     <h1>La password sarà di: <?= $password; ?> Caratteri </h1>
     <p><?php
-    for ($i = 1; $i <= $password; $i++) {
-        echo "X";
-    }
-    ?></p>
+        for ($i = 1; $i <= $password; $i++) {
+            
+            echo $caratteriConsentiti[random_int(0, $lunghezza - 1)];
+        }
+        ?></p>
 </body>
 
 </html>
